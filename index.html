@@ -7,16 +7,15 @@
 </head>
 <body>
   <div id="app">
-    <button @click="handleClick">Click</button>
     <input type="text" v-model="name">
     <button @click="doAdd">モンスターを追加</button>
     <ul>
-        <li v-for="item in list"
+        <li v-for="(item,index) in list"
           v-bind:key="item.id"
           v-bind:class="{ tuyoi: item.hp > 300 }">
           ID.{{ item.id }} {{ item.name }} HP.{{ item.hp }}
-          <span v-if="item.hp > 300">つよい！</span>
-          <button @click="doRemove(index)">モンスターを削除</button>
+          <span v-if="item.hp < 50">瀕死</span>
+          <button @click="doAttack(index)">モンスターを攻撃</button>
         </li>
       </ul>
   </div>

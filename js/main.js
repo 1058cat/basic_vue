@@ -20,8 +20,11 @@ var app = new Vue ({
                 hp: 500
             })
         },
-        doRemove: function(index){
-            this.list.splice(index, 1);
+        doAttack: function(index){
+            this.list[index].hp -= 10;
+            if (this.list[index].hp <= 0) {
+                this.list.splice(index, 1);
+            }
         }
     }
 })
