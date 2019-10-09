@@ -10,13 +10,18 @@
     <transition name="fade">
       <p v-if="show">{{message}}</p>
     </transition>
-    <ol>
-      <li v-for="item in list">{{item}}</li>
-    </ol>
     <button @click="handleClick">Click</button>
     <p>{{message}}</p>
     <input type="text" v-model="message">
     <button @click="show=!show">切り替え</button>
+    <ul>
+        <li v-for="item in list"
+          v-bind:key="item.id"
+          v-bind:class="{ tuyoi: item.hp > 300 }">
+          ID.{{ item.id }} {{ item.name }} HP.{{ item.hp }}
+          <span v-if="item.hp > 300">つよい！</span>
+        </li>
+      </ul>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
   <script src="js/main.js"></script>
