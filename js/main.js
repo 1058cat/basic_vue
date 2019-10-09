@@ -9,9 +9,6 @@ var app = new Vue ({
         ]
     },
     methods: {
-        handleClick: function(event) {
-            alert(event.target)
-        },
         doAdd: function(){
             var max = this.list.reduce((a,b) => {
                 console.log(a);
@@ -22,6 +19,9 @@ var app = new Vue ({
                 name: this.name,
                 hp: 500
             })
+        },
+        doRemove: function(index){
+            this.list.splice(index, 1);
         }
     }
 })
