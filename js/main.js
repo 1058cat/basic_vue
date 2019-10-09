@@ -1,17 +1,27 @@
 var app = new Vue ({
     el: '#app',
     data: {
-        message: 'Hello Vue.js',
+        name: 'キマイラ',
         list: [
             { id: 1, name: 'スライム', hp: 100 },
             { id: 2, name: 'ゴブリン', hp: 200 },
             { id: 3, name: 'ドラゴン', hp: 500 }
-        ],
-        show: true,
+        ]
     },
     methods: {
         handleClick: function(event) {
             alert(event.target)
+        },
+        doAdd: function(){
+            var max = this.list.reduce((a,b) => {
+                console.log(a);
+                return a > b.id ? a : b.id
+            }, 0)
+            this.list.push({
+                id: max + 1,
+                name: this.name,
+                hp: 500
+            })
         }
     }
 })

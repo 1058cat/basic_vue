@@ -7,13 +7,9 @@
 </head>
 <body>
   <div id="app">
-    <transition name="fade">
-      <p v-if="show">{{message}}</p>
-    </transition>
     <button @click="handleClick">Click</button>
-    <p>{{message}}</p>
-    <input type="text" v-model="message">
-    <button @click="show=!show">切り替え</button>
+    <input type="text" v-model="name">
+    <button @click="doAdd">モンスターを追加</button>
     <ul>
         <li v-for="item in list"
           v-bind:key="item.id"
