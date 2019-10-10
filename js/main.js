@@ -2,11 +2,14 @@ var app = new Vue ({
     el: '#app',
     data: {
         name: 'キマイラ',
-        list: [
-            { id: 1, name: 'スライム', hp: 100 },
-            { id: 2, name: 'ゴブリン', hp: 200 },
-            { id: 3, name: 'ドラゴン', hp: 500 }
-        ]
+        list: []
+    },
+    created: function(){
+        axios.get('https://api.myjson.com/bins/9f1sq').then(function(response){
+            this.list = response.data
+        }.bind(this)).catch(function(e){
+            console.log(e)
+        })
     },
     methods: {
         doAdd: function(){
