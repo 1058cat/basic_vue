@@ -4,7 +4,7 @@ about: Create a report to help us improve
 title: ''
 labels: ''
 assignees: 1058cat
-projects: 1058cat/2
+projects: 1058cat/projects/2
 
 ---
 
